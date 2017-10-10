@@ -1,18 +1,23 @@
 # Build and Release Folders
 bin/
+obj/
 bin-debug/
 bin-release/
+packages/
 [Oo]bj/ # FlashDevelop obj
 [Bb]in/ # FlashDevelop bin
 
 # Other files and folders
 .settings/
+.vs/
+.vscode/
 
 # Executables
 *.swf
 *.air
 *.ipa
 *.apk
+*.user
 
 # Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
 # should NOT be excluded as they contain compiler settings and other important
