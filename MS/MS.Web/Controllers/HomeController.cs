@@ -9,9 +9,9 @@ namespace MS.Web.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        public string Index()
+        public ActionResult Index()
         {
-            return "Hello World";
+            return View();
         }
     }
 }
