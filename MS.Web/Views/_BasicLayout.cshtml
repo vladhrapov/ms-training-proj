@@ -1,17 +1,13 @@
-@model MS.Web.Models.Product
-
-@{
-    Layout = null;
-}
+﻿<!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>@ViewBag.Title</title>
 </head>
 <body>
     <div>
-        Product: @Model.Name
+        @RenderBody()
     </div>
 </body>
 </html>
