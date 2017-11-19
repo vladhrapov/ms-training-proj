@@ -1,0 +1,57 @@
+﻿@model MS.Web.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/styles.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <title>RsvpForm</title>
+</head>
+<body>
+    <div class="panel panel-success">
+        <div class="panel-heading text-center">
+            <h4>RSVP</h4>
+        </div>
+        <div>
+            @using (Html.BeginForm())
+            {
+                <div class="form-group">
+                    <label>Your name:</label>
+                    @Html.TextBoxFor(obj => obj.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(obj => obj.Name)
+                </div>
+                <div class="form-group">
+                    <label>Your email:</label>
+                    @Html.TextBoxFor(obj => obj.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(obj => obj.Email)
+                </div>
+                <div class="form-group">
+                    <label>Your phone:</label>
+                    @Html.TextBoxFor(obj => obj.Phone, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(obj => obj.Phone)
+                </div>
+                <div class="form-group">
+                    <label>Will you attend?</label>
+                    @Html.DropDownListFor(obj => obj.WillAttend, new[] {
+                        new SelectListItem() { Text = "Yes, I will come", Value = bool.TrueString },
+                        new SelectListItem() { Text = "No, sorry", Value = bool.FalseString }
+                    }, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(obj => obj.WillAttend)
+                </div>
+                <br />
+                <div class="text-center">
+                    <input class="btn btn-success" type="submit" name="submit-btn" value="Submit RSVP form" />
+                </div>
+                @Html.ValidationSummary()
+            }
+        </div>
+    </div>
+</body>
+</html>
