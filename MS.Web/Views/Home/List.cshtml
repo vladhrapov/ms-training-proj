@@ -1,0 +1,35 @@
+﻿@model MS.Web.Models.Product[]
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/_ViewStart.cshtml";
+}
+
+<h2>List</h2>
+
+@if (Model.Length > 0)
+{
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Description</td>
+                <td>Price</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    @: No items to display
+}

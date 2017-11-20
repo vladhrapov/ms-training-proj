@@ -23,5 +23,21 @@ namespace MS.Web.Controllers
         {
             return View(myProduct);
         }
+
+        public ActionResult NameAndPrice()
+        {
+            return View(myProduct);
+        }
+
+        public ActionResult List()
+        {
+            var products = new Product[]{
+                myProduct,
+                myProduct,
+                myProduct
+            };
+
+            return View(products);
+        }
     }
 }

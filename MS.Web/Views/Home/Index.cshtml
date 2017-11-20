@@ -1,17 +1,13 @@
 @model MS.Web.Models.Product
 
 @{
-    Layout = null;
+    ViewBag.Title = "Product Name";
+    // This is default layout, which is used by MVC
+    // we can not set it
+    Layout = "~/Views/_ViewStart.cshtml";
 }
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div>
-        Product: @Model.Name
-    </div>
-</body>
-</html>
+<h2>Name</h2>
+<div>
+    Product Name: @Model.Name
+</div>
