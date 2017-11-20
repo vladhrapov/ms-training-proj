@@ -6,12 +6,12 @@ using System.Web.Mvc;
 
 namespace MS.Web.Controllers
 {
-    public class HomeController : Controller
+    public class AdminController : Controller
     {
-        // GET: Home
+        // GET: Admin
         public ActionResult Index()
         {
-            ViewBag.Controller = "Home";
+            ViewBag.Controller = "Admin";
             ViewBag.Action = "Index";
             return View("ActionName");
         }
