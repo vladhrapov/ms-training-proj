@@ -1,4 +1,7 @@
-﻿using Ninject;
+﻿using MS.Domain.Abstract;
+using MS.Domain.Concrete;
+using Ninject;
+using Ninject.Web.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +34,8 @@ namespace MS.Web.Infrastructure
         private void AddBindings()
         {
             // put bindings here
+            kernel.Bind<IProductRepository>().To<ProductRepository>().InRequestScope();
+            kernel.Bind<EFDbContext>().ToSelf().InRequestScope();
         }
     }
 }
