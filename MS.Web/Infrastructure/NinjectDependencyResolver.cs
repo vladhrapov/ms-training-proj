@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MS.Web.Infrastucture
+namespace MS.Web.Infrastructure
 {
     public class NinjectDependencyResolver : IDependencyResolver
     {
