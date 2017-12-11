@@ -1,15 +1,14 @@
-﻿@using MS.Domain.Entities
-@model IEnumerable<Product>
+﻿@model MS.Web.Models.ProductsListViewModel
 
 @{
     ViewBag.Title = "Products";
 }
 
-@foreach (var product in Model)
+@foreach (var product in Model.Products)
 {
-    <div>
-        <h3>@product.Name</h3>
-        <div>@product.Description</div>
-        <div>@product.Price.ToString("c")</div>
-    </div>
+    @Html.Partial("ProductSummary", product)
 }
+
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, page => Url.Action("List", new { page = page }))
+</div>

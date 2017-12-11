@@ -17,9 +17,23 @@ namespace MS.Domain.Concrete
             this.context = context;
         }
 
-        public IEnumerable<Product> GetProducts(int page, int pageSize)
+        public IEnumerable<string> Categories
+        {
+            get
+            {
+                return context.Products
+                    .Select(product => product.Category)
+                    .Distinct()
+                    .OrderBy(name => name);
+            }
+        }
+
+        public int GetProductsCount() => context.Products.Count();
+
+        public IEnumerable<Product> GetProducts(int page, int pageSize, string category)
         {
             return context.Products
+                .Where(p => category == null || p.Category == category)
                 .OrderBy(product => product.ProductID)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)

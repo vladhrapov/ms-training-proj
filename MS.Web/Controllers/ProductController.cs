@@ -1,4 +1,5 @@
 ﻿using MS.Domain.Abstract;
+using MS.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,11 +19,25 @@ namespace MS.Web.Controllers
         }
 
         // GET: Product
-        public ViewResult List(int page = 1)
+        public ViewResult List(string category, int page = 1)
         {
-            var products = productRepository.GetProducts(page, PageSize);
+            var products = productRepository.GetProducts(page, PageSize, category);
 
-            return View(products);
+            var pagingInfo = new PagingInfo
+            {
+                CurrentPage = page,
+                ItemsPerPage = PageSize,
+                TotalItems = productRepository.GetProductsCount()
+            };
+
+            var model = new ProductsListViewModel
+            {
+                Products = products,
+                PagingInfo = pagingInfo,
+                CurrentCategory = category
+            };
+
+            return View(model);
         }
     }
 }

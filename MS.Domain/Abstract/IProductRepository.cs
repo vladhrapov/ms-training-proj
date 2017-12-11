@@ -5,6 +5,8 @@ namespace MS.Domain.Abstract
 {
     public interface IProductRepository
     {
-        IEnumerable<Product> GetProducts(int page, int pageSize);
+        IEnumerable<string> Categories { get; }
+        int GetProductsCount();
+        IEnumerable<Product> GetProducts(int page, int pageSize, string category);
     }
 }
